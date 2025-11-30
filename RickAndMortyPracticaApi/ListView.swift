@@ -13,6 +13,15 @@ struct ListView: View {
         ZStack{
             Color.black //Cambia de color lo que esta afuera de la lista
                 .ignoresSafeArea()
+            VStack{
+                Text("Personajes de Rick y Morty")
+                    .foregroundStyle(Color.white)
+                    .font(Font.title.bold())
+                    .ignoresSafeArea()
+                    .padding(.top, 1)
+                    
+                Spacer()
+            }
             
             List(RickList.personajes) { personaje in
                 HStack(spacing: 16) {
@@ -21,12 +30,19 @@ struct ListView: View {
                     } placeholder: {
                         ProgressView()
                     }
-                    .frame(width: 80, height: 80)
+                    .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-
-                    Text(personaje.name)
-                        .foregroundColor(.white)
-                        .font(.headline)
+                    
+                    VStack(spacing: 8){
+                        Text("Nombre del personaje: \(personaje.name)")
+                            .foregroundColor(.white)
+                            .font(.system(size: 12, weight: .bold, design: .default))
+                        Text("Tierra de origen: \(personaje.origin.name)")
+                            .foregroundColor(.white)
+                            .font(.system(size: 12, weight: .bold, design: .default))
+                    }
+                   
+                        
                 }
                 .padding(.vertical, 8)
                 .listRowBackground(Color.gray)//cambia la lista de color
