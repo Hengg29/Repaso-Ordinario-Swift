@@ -31,7 +31,7 @@ struct ListView: View {
                 .padding(.vertical, 8)
                 .listRowBackground(Color.gray)//cambia la lista de color
             }
-            .scrollContentBackground(.hidden)
+            .scrollContentBackground(.hidden)//esto tmb es importante
             .onAppear {
                 RickList.getPersonajes()
             }
